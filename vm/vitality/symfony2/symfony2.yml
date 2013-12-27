@@ -6,6 +6,14 @@ composer:
   if:   which composer.phar
   else: sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/
 
-sf2:
+download sf2:
+  if:   cat /tmp/sf2/app/console
+  else: composer.phar create-project symfony/framework-standard-edition /tmp/sf2/
+
+copy sf2:
   if:   cat /home/vagrant/project/app/console
-  else: composer.phar create-project symfony/framework-standard-edition /home/vagrant/project/
+  else: cp -r /tmp/sf2/* /home/vagrant/project/
+
+#remove /tmp/sf2/:
+#  if:   cat /home/vagrant/project/app/console
+#  else: cp -r /tmp/sf2/* /home/vagrant/project/

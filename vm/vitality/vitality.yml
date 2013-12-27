@@ -7,7 +7,7 @@ php:
   else: ./php/install.sh
 
 symfony2:
-  if:   cat /home/vagrant/project/app/config.yml
+  if:   cat /home/vagrant/project/app/console
   else: cd symfony2 && sudo vitality symfony2.yml
 
 #
