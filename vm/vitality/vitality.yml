@@ -10,6 +10,11 @@ symfony2:
   if:   cat /home/vagrant/project/app/console
   else: cd symfony2 && sudo vitality symfony2.yml
 
+vhost:
+  if:   cmp /etc/apache2/sites-available/project.conf /vagrant/vitality/apache/project.conf
+  else: cd apache && sudo vitality server.yml
+
+
 #
 #php 5.3:
 #  if:   which php
@@ -23,6 +28,3 @@ symfony2:
 #  if:   which mongo
 #  else: sudo apt-get install -y mongodb
 
-vhost:
-  if:   cmp /etc/apache2/sites-available/project.conf /vagrant/vitality/apache/project.conf
-  else: cd apache && sudo vitality server.yml
