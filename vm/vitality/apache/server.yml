@@ -1,6 +1,3 @@
-disable default:
-  if:  sudo a2dissite default
-
 remove vhost:
   if:  sudo rm /etc/apache2/sites-available/project.conf
 
@@ -13,4 +10,10 @@ enable vhost:
   else: sudo a2ensite project.conf
 
 apache reload:
+  if: sudo service apache2 reload
+
+disable default:
+  if:  sudo a2dissite default || sudo a2dissite default 000-default.conf
+
+apache reload again:
   if: sudo service apache2 reload

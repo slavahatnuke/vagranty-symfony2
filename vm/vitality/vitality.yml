@@ -6,8 +6,16 @@ php:
   if:   which php
   else: ./php/install.sh
 
+php.ini - apache2:
+  if:   cmp  /etc/php5/apache2/conf.d/php.ini /vagrant/vitality/php/php.ini
+  else: sudo cp /vagrant/vitality/php/php.ini /etc/php5/apache2/conf.d/php.ini && sudo service apache2 reload
+
+php.ini - cli:
+  if:   cmp  /etc/php5/cli/conf.d/php.ini /vagrant/vitality/php/php.ini
+  else: sudo cp /vagrant/vitality/php/php.ini /etc/php5/cli/conf.d/php.ini
+
 symfony2:
-  if:   cat /home/vagrant/project/app/console
+  if:   cat /home/vagrant/project/app/console && php /home/vagrant/project/app/console | grep Symfony
   else: cd symfony2 && sudo vitality symfony2.yml
 
 vhost:
