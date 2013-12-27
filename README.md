@@ -1,7 +1,7 @@
 # Vagranty Symfony2
 
 ## Start
-* `mkdir vm && cd vm`
+* `mkdir sf2 && cd sf2`
 * `curl -sSL https://raw.github.com/slavahatnuke/vagranty-symfony2/master/install.sh | sh`
 * `cd vm`
 * `vagrant up`
