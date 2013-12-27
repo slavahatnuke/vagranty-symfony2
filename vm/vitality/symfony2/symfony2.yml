@@ -1,0 +1,11 @@
+curl:
+  if:   which curl
+  else: sudo apt-get install -y curl
+
+composer:
+  if:   which composer.phar
+  else: sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/
+
+sf2:
+  if:   cat /home/vagrant/project/app/console
+  else: composer.phar create-project symfony/framework-standard-edition /home/vagrant/project/
