@@ -1,0 +1,5 @@
+*
+!vm/*
+!.gitignore
+!install.sh
+!README.md
