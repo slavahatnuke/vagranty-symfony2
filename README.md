@@ -2,7 +2,7 @@
 
 ## Requirements
 * `curl`
-* 'nfsd'
+* `nfsd`
 * `virtualbox` | https://www.virtualbox.org/wiki/Downloads
 * `vagrant` | http://www.vagrantup.com/downloads
 
